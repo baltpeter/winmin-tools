@@ -25,9 +25,9 @@ def startup(vm,program,arg,name,save):
     p.write("\r")
     time.sleep(0.5)
     if len(arg) >= 1:
-      p.write('startps "{}" "{}"\r'.format(program,arg))
+      p.write('startps \\"{}\\" \\"{}\\"\r'.format(program,arg))
     else:
-      p.write('startps "{}"\r'.format(program))
+      p.write('startps \\"{}\\"\r'.format(program))
     time.sleep(1)
     p.write("\r\r")
   print("commands EXECUTED!!!")
@@ -72,8 +72,8 @@ def main():
     file="\\\\{}\\winmin".format(ip)+file.replace("/","\\")
   else:
     file=""
-  
+
   startup(vm,program,file,name,save)
-  
+
 if __name__ == "__main__":
   main();
